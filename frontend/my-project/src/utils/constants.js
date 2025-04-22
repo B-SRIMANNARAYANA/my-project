@@ -1,1 +1,1 @@
-export const BASE_URL='http://localhost:8000'
+export const BASE_URL='https://my-backend-yp58.onrender.com'
