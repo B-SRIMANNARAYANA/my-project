@@ -17,8 +17,16 @@ const { error } = require("console");
 mongoose.connect(config.connectionString);
 
 const app = express();
-app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(express.json());const allowedOrigins = [
+    "https://my-project-frontend-sable.vercel.app/login",
+    "http://localhost:5173", // Optional: Keep for local testing
+  ];
+  
+  app.use(
+    cors({
+      origin: allowedOrigins,
+    })
+  );
 
 // Create Account
 app.post("/create-account", async (req, res) => {
