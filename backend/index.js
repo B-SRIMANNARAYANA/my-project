@@ -17,14 +17,17 @@ const { error } = require("console");
 mongoose.connect(config.connectionString);
 
 const app = express();
-app.use(express.json());const allowedOrigins = [
-    "https://my-project-frontend-sable.vercel.app/login",
-    "http://localhost:5173", // Optional: Keep for local testing
+app.use(express.json());
+const allowedOrigins = [
+    "https://my-project-frontend-sable.vercel.app", 
+    "http://localhost:5173",
   ];
   
   app.use(
     cors({
       origin: allowedOrigins,
+      methods: ["GET", "POST", "PUT", "DELETE"], 
+      credentials: true, 
     })
   );
 
